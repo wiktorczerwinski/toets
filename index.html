@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Wiktor Czerwinski</h1>
+<label>getal 1<input type="number" id="g1"></label>
+<label>getal 2<input type="number" id="g2"></label>
+<label>
+    <select id="operator">
+        <option value="+">optellen</option>
+        <option value="-">aftrekken</option>
+        <option value="*">vermenigvuldigen</option>
+        <option value="/">delen</option>
+    </select>
+</label>
+<button id="start">reken uit</button>
+<div id="uitkomst"></div>
+<script>
+    function multi(a, b) {
+        return a * b;
+    }
+    function add(a, b) {
+        return a + b;
+    }
+    function sub(a, b) {
+        return a - b;
+    }
+    function div(a, b) {
+        return a / b;
+    }
+    function calculator(a, b, operator) {
+        if(operator === "+") {
+            return add(a, b);
+        }
+        else if(operator === "-") {
+            return sub(a, b);
+        }
+        else if(operator === "*") {
+            return multi(a, b);
+        }
+        else if(operator === "/") {
+            return div(a, b);
+        }
+    }
+
+    document.getElementById('start').addEventListener('click', start);
+    function start() {
+        const g1 = parseFloat(document.getElementById('g1').value);
+        const g2 = parseFloat(document.getElementById('g2').value);
+        const operator = document.getElementById('operator').value;
+        const uitkomst = document.getElementById('uitkomst');
+        uitkomst.innerText = calculator(g1, g2, operator);
+    }
+</script>
+</body>
+</html>
